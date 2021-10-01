@@ -16,7 +16,7 @@ function App() {
     <Router>
       <header className="App-header">
         <nav className="App-navbar">
-          <Link className="App-abas-primeiro" to="/">Sobre</Link>
+          <Link className="App-abas-primeiro" to="/">Adicionar alimentos</Link>
           <Link className="App-abas-primeiro" to="historico">Historico</Link>
         </nav>
       </header>
