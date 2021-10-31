@@ -1,33 +1,110 @@
 import React, { Component } from 'react';
 import './sobre.css';
-import { Col, Row, Button, Form } from 'react-bootstrap';
+import { Col, Row, Button, Form, Container, Card } from 'react-bootstrap';
 
-const Sobre = () => {
+class Sobre extends Component {
+    state = {
+        listaAlimentos: [],
+        alimento: "",
+        caloria: "",
+    }
 
-    return (
-        <div className="page-component">
-            <Row>
-                <Col md={7} style={{textAlign: 'center'}}>
-                    <br />
+    adicionar = () => {
+        let baseAlimentos = {
+            nome: "",
+            caloria: ""
+        }
 
-                    <h1>Olá, bem-vindo ao nosso sistema de controle de alimentação.</h1>
+        baseAlimentos.nome = this.state.alimento.trim();
+        baseAlimentos.caloria = this.state.caloria.trim();
 
-                    <hr/>
+
+        //trim
+        this.state.listaAlimentos.push(JSON.parse(JSON.stringify(baseAlimentos)));
+
+        document.getElementById("alimento").value = "";
+        document.getElementById("caloria").value = "";
+
+        let state = this.state;
+
+        state.alimento = state.caloria = "";
+        this.setState(state);
+        console.log(this.state.listaAlimentos);
+    }
+
+    novoAlimento = (event) => {
+        let state = this.state;
+
+        state.alimento = event.target.value;
+        this.setState(state);
+    }
+
+    novaCaloria = (event) => {
+        let state = this.state;
+
+        state.caloria = event.target.value;
+        this.setState(state);
+    }
+
+    excluirAlimento = (index) => {
+        let state = this.state;
+
+        state.listaAlimentos.splice(index, 1);
+        this.setState(state);
+    }
+
+    render () {
+        return (
+            <div className="page-component">
+                <Row>
+                    <Col md={7} style={{textAlign: 'center'}}>
+                        <br />
+
+                        <h1>Olá, bem-vindo ao nosso sistema de controle de alimentação.</h1>
+
+                        <hr/>
+                    </Col>
+                </Row>
+                <Col md={8}>
+
                 </Col>
-            </Row>
-            <Row>
                 <Col md={4}>
-                    <Form.Control type="text" placeholder="Alimento" />
+                    <div id="lista">
+                        {this.state.listaAlimentos.map((list, index) => 
+                            <Card key={index}>
+                                <Card.Header>
+                                    {list.nome}
+                                </Card.Header>
+                                <Card.Body>
+                                    {list.caloria}
+                                </Card.Body>
+                                <Card.Footer>
+                                    <Button onClick={() => this.excluirAlimento(index)}>
+                                        Excluir
+                                    </Button>
+                                </Card.Footer>
+                            </Card>
+                        )}
+                    </div>
                 </Col>
-                <Col md={2}>
-                    <Form.Control type="text" placeholder="Calorias" />
-                </Col>
-                <Col md={2}>
-                    <Button variant="secondary" style={{marginRight: '5px'}}>Adicionar</Button>
-                </Col>
-            </Row>
-        </div>
-    );
+                <Container>
+                    <Row>
+                        <Col>
+                            <Col md={4}>
+                                <Form.Control id="alimento" type="text" placeholder="Alimento" value={this.state.alimento} onChange={this.novoAlimento}/>
+                            </Col>
+                            <Col md={2}>
+                                <Form.Control id="caloria" type="text" placeholder="Calorias" value={this.state.caloria} onChange={this.novaCaloria}/>
+                            </Col>
+                            <Col md={2}>
+                                <Button variant="secondary" style={{marginRight: '5px'}} onClick={this.adicionar}>Adicionar</Button>
+                            </Col>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        )
+    }
 }
 
 export default Sobre;
