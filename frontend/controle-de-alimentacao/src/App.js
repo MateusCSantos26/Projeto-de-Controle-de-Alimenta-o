@@ -27,7 +27,6 @@ function App() {
         
       </header>
       <Switch>
-        
         <Route path="/historico">
           <Historico />
         </Route>
@@ -36,7 +35,10 @@ function App() {
         </Route>
         <Route path="/sobre">
           <Sobre />
-      </Route>
+        </Route>
+        <Route path="/">
+          <Sobre />
+        </Route>
       </Switch>
       
     </Router>  
