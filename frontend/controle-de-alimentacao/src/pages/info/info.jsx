@@ -13,7 +13,7 @@ const Info = () => {
             tratamento de doenças. Há milhares de anos, Hipócrates já afirmava: “que teu alimento 
             seja teu remédio e que teu remédio seja teu alimento”. É isso mesmo. O equilíbrio na dieta 
             é um dos motivos que permitiu ao homem ter vida mais longa neste século.</p>
-            <img src={fruit}/>
+            <img src={fruit} alt=""/>
         <h2>O que são alimentos?</h2>
         <p>Alimentos são todas as substâncias sólidas e líquidas que, levadas ao tubo digestivo, 
             são degradadas e depois usadas para formar e/ou manter os tecidos do corpo, regular 
@@ -23,7 +23,7 @@ const Info = () => {
             e fornecer energia. Também existem alimentos que só nos fornecem calorias vazias, 
             ou seja, são concentrados em certas substâncias que se transformam apenas em energia 
             após a digestão, como é o caso das bebidas álcoólicas e refrigerantes.</p>
-            <img src={piramide}/>
+            <img src={piramide} alt=""/>
         <h2>O que são nutrientes?</h2>
         <p>Nutrientes são todas as substâncias químicas que fazem parte dos alimentos e que são 
             absorvidas pelo organismo, sendo indispensáveis para o seu funcionamento. Também 

@@ -5,7 +5,7 @@ import { ControleAlimenticioModule } from './controle-alimenticio/controle-alime
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/controle-alimenticio'),
+    MongooseModule.forRoot('mongodb+srv://admin:cV90YwiWHI12h0iY@cluster0.hd10l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'),
     ControleAlimenticioModule,
   ],
 })

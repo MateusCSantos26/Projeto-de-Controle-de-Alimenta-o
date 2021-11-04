@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './sobre.css';
-import { Col, Row, Button, Form, Card, ListGroup } from 'react-bootstrap';
+import { Col, Row, Form, Card, ListGroup } from 'react-bootstrap';
 
 class Sobre extends Component {
     state = {
@@ -12,24 +12,32 @@ class Sobre extends Component {
     adicionar = () => {
         let baseAlimentos = {
             nome: "",
-            caloria: ""
+            caloria: "",
+            data: "",
         }
+        var date = new Date();
 
+        baseAlimentos.data = date.getFullYear().toString() + (date.getMonth()+1).toString().padStart(2, '0') + date.getDate().toString().padStart(2, '0');
+        console.log(baseAlimentos.data)
+    
         baseAlimentos.nome = this.state.alimento.trim();
         baseAlimentos.caloria = this.state.caloria.trim();
 
+        if(baseAlimentos.nome !== "" && !isNaN(baseAlimentos.caloria)){
+            if(baseAlimentos.caloria === ""){
+                baseAlimentos.caloria = 0;
+            }
+            this.state.listaAlimentos.push(JSON.parse(JSON.stringify(baseAlimentos)));
 
-        //trim
-        this.state.listaAlimentos.push(JSON.parse(JSON.stringify(baseAlimentos)));
+            document.getElementById("alimento").value = "";
+            document.getElementById("caloria").value = "";
 
-        document.getElementById("alimento").value = "";
-        document.getElementById("caloria").value = "";
+            let state = this.state;
 
-        let state = this.state;
-
-        state.alimento = state.caloria = "";
-        this.setState(state);
-        console.log(this.state.listaAlimentos);
+            state.alimento = state.caloria = "";
+            this.setState(state);
+            console.log(this.state.listaAlimentos);
+        }
     }
 
     novoAlimento = (event) => {
@@ -53,14 +61,17 @@ class Sobre extends Component {
         this.setState(state);
     }
 
+    postAlimento = () => {
+        
+    }
+
     render () {
         return (
             <div>
                 <Col md={12}>
                     <Row>
-                        <Col style={{textAlign: 'center'}}>
-                            <br />
-
+                        <Col style={{textAlign: 'center'}} md={12} lg={12} xl={12}>
+                            <br/>
                             <h2>Olá, bem-vindo ao nosso sistema de controle de alimentação.</h2>
                             <h3>Digite o alimento e as calorias, respectivamente:</h3>
                             <br/>
@@ -77,28 +88,28 @@ class Sobre extends Component {
                         </Col>
                         <Col m={4}>
                         </Col> 
-                    <Col md={3}>
-                        <div id="lista">
-                            {this.state.listaAlimentos.map((list, index) => 
-                                <Card key={index}>
-                                    <ListGroup horizontal variant="flush">
-                                        <ListGroup.Item>
-                                            {list.nome}
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            {list.caloria}
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <button className="Excluir" onClick={() => this.excluirAlimento(index)}>
-                                                Excluir
-                                            </button>
-                                        </ListGroup.Item>
-                                    </ListGroup>
-                                </Card>
-                            )}
-                        </div>
-                    </Col>
-                    <Col m={1}>
+                        <Col md={3}>
+                            <div id="lista">
+                                {this.state.listaAlimentos.map((list, index) => 
+                                    <Card key={index}>
+                                        <ListGroup horizontal variant="flush">
+                                            <ListGroup.Item>
+                                                {list.nome}
+                                            </ListGroup.Item>
+                                            <ListGroup.Item>
+                                                {list.caloria}
+                                            </ListGroup.Item>
+                                            <ListGroup.Item>
+                                                <button className="Excluir" onClick={() => this.excluirAlimento(index)}>
+                                                    Excluir
+                                                </button>
+                                            </ListGroup.Item>
+                                        </ListGroup>
+                                    </Card>
+                                )}
+                            </div>
+                        </Col>
+                        <Col m={1}>
                         </Col> 
                     </Row>
                 </Col>
