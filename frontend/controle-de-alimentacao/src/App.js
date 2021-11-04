@@ -17,12 +17,14 @@ function App() {
   return (
     <Router>
       <header className="App-header">
-      <img src={logo} className="Logo" />;
-        <nav className="App-navbar">
+      <img src={logo} className="Logo" />
+      
+        <nav class= "navMenu">
           <Link className="App-abas-primeiro" to="/">Adicionar alimentos</Link>
           <Link className="App-abas-primeiro" to="historico">Histórico</Link>
           <Link className="App-abas-primeiro" to="info">Informações</Link>
         </nav>
+        
       </header>
       <Switch>
         

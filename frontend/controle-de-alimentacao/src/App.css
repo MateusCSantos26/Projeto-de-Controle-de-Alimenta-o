@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -11,20 +19,52 @@
 
 .App-header {
   background-color: #fff8dd;
-  height: 45vh;
+  height: 50%;
 }
 
 .App-navbar {
-  
   display: flex;
+  height: 50%;
+  width: 50%;
   flex-direction: row;
-  background-color: #ffefae;
+  align-items:flex-end
 }
 
 .App-abas-primeiro {
   margin: 10px 10px 5px 15px;
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+
+.navMenu {
+  position: fixed;
+  top: 42%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: inline;
+  flex-direction: row;
+  background-color: #ffefae;
+  width: 100%;
+  height: 4%;
+  text-align: center;
+}
+
+.navMenu a {
+  font-family: "Montserrat", sans-serif;
+  color: #000000;
+  text-decoration: none;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #239861;
 }
 
 @keyframes App-logo-spin {
