@@ -40,7 +40,6 @@ function App() {
           <Sobre />
         </Route>
       </Switch>
-      
     </Router>  
   );
 }

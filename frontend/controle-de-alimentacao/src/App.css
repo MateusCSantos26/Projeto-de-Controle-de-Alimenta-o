@@ -32,7 +32,7 @@
   height: 50%;
   width: 50%;
   flex-direction: row;
-  align-items:flex-end
+  align-items:flex-end;
 }
 
 .App-abas-primeiro {
@@ -71,4 +71,3 @@
     transform: rotate(360deg);
   }
 }
-
