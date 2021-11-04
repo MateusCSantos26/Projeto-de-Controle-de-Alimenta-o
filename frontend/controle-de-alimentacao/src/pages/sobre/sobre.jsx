@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './sobre.css';
-import { Col, Row, Button, Form, Container, Card } from 'react-bootstrap';
+import { Col, Row, Button, Form, Card } from 'react-bootstrap';
 
 class Sobre extends Component {
     state = {
@@ -55,39 +55,15 @@ class Sobre extends Component {
 
     render () {
         return (
-            <div className="page-component">
-                <Row>
-                    <Col md={7} style={{textAlign: 'center'}}>
-                        <br />
+            <div>
+                <Col md={12}>
+                    <Row>
+                        <Col style={{textAlign: 'center'}}>
+                            <br />
 
-                        <h1>Olá, bem-vindo ao nosso sistema de controle de alimentação.</h1>
-
-                        <hr/>
-                    </Col>
-                </Row>
-                <Col md={8}>
-
-                </Col>
-                <Col md={4}>
-                    <div id="lista">
-                        {this.state.listaAlimentos.map((list, index) => 
-                            <Card key={index}>
-                                <Card.Header>
-                                    {list.nome}
-                                </Card.Header>
-                                <Card.Body>
-                                    {list.caloria}
-                                </Card.Body>
-                                <Card.Footer>
-                                    <Button onClick={() => this.excluirAlimento(index)}>
-                                        Excluir
-                                    </Button>
-                                </Card.Footer>
-                            </Card>
-                        )}
-                    </div>
-                </Col>
-                <Container>
+                            <h1>Olá, bem-vindo ao nosso sistema de controle de alimentação.</h1>
+                        </Col>
+                    </Row>
                     <Row>
                         <Col>
                             <Col md={4}>
@@ -101,7 +77,26 @@ class Sobre extends Component {
                             </Col>
                         </Col>
                     </Row>
-                </Container>
+                    <Col md={4}>
+                        <div id="lista">
+                            {this.state.listaAlimentos.map((list, index) => 
+                                <Card key={index}>
+                                    <Card.Header>
+                                        {list.nome}
+                                    </Card.Header>
+                                    <Card.Body>
+                                        {list.caloria}
+                                    </Card.Body>
+                                    <Card.Footer>
+                                        <Button onClick={() => this.excluirAlimento(index)}>
+                                            Excluir
+                                        </Button>
+                                    </Card.Footer>
+                                </Card>
+                            )}
+                        </div>
+                    </Col>
+                </Col>
             </div>
         )
     }

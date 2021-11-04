@@ -17,10 +17,10 @@ function App() {
   return (
     <Router>
       <header className="App-header">
-      <img src={logo} className="Logo" />
+        <img src={logo} className="Logo" style={{maxWidth:"84vh", maxHeight:"84vh"}} alt=""/>
       
         <nav class= "navMenu">
-          <Link className="App-abas-primeiro" to="/">Adicionar alimentos</Link>
+          <Link className="App-abas-primeiro" to="sobre">Adicionar alimentos</Link>
           <Link className="App-abas-primeiro" to="historico">Histórico</Link>
           <Link className="App-abas-primeiro" to="info">Informações</Link>
         </nav>
@@ -34,7 +34,7 @@ function App() {
         <Route path="/info">
           <Info />
         </Route>
-        <Route path="/">
+        <Route path="/sobre">
           <Sobre />
       </Route>
       </Switch>
