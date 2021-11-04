@@ -61,7 +61,9 @@ class Sobre extends Component {
                         <Col style={{textAlign: 'center'}}>
                             <br />
 
-                            <h1>Olá, bem-vindo ao nosso sistema de controle de alimentação.</h1>
+                            <h2>Olá, bem-vindo ao nosso sistema de controle de alimentação.</h2>
+                            <h3>Digite o alimento e as calorias, respectivamente:</h3>
+                            <br/>
                         </Col>
                     </Row>
                     <Row>
