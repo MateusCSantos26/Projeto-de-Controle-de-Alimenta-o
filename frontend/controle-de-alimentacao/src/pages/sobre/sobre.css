@@ -14,20 +14,26 @@ input, button {
     margin: 15px 10px 5px 100px;
   }
   .Adicionar{
-    margin: 15px 10px 5px 170px;
+    margin: 0.5rem 5rem 5rem 8rem;
+    border-radius: 0.25rem;
+  }
+
+  .Excluir{
+    border-radius: 0.25rem;
+    background-color: rgb(165, 80, 80);
   }
 
   button{
     cursor: pointer;
     background-color: rgb(61, 88, 74);
-    border-radius: 12px;
+    border-radius: 60px;
     border: 0;
     box-sizing: border-box;
     color: #eee;
     font-size: 15px;
     height: 30px;
     text-align: center;
-    width: 80px;
+    width: 90px;
   }
 
  

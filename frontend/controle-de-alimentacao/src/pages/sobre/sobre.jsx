@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './sobre.css';
-import { Col, Row, Button, Form, Card } from 'react-bootstrap';
+import { Col, Row, Button, Form, Card, ListGroup } from 'react-bootstrap';
 
 class Sobre extends Component {
     state = {
@@ -65,37 +65,40 @@ class Sobre extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
-                            <Col md={4}>
+                        <Col m={1}>
+                        </Col> 
+                        <Col md={3}>
                                 <Form.Control id="alimento" type="text" placeholder="Alimento" value={this.state.alimento} onChange={this.novoAlimento}/>
-                            </Col>
-                            <Col md={2}>
-                                <Form.Control id="caloria" type="text" placeholder="Calorias" value={this.state.caloria} onChange={this.novaCaloria}/>
-                            </Col>
-                            <Col md={2}>
-                                <Button className="Adicionar" variant="secondary" style={{marginRight: '5px'}} onClick={this.adicionar}>Adicionar</Button>
-                            </Col>
+                                <Form.Control id="caloria" type="text" placeholder="Calorias" value={this.state.caloria} onChange={this.novaCaloria}/>                      
+                                <button className="Adicionar" variant="secondary" style={{marginRight: '50px'}} onClick={this.adicionar}>Adicionar</button>
+
                         </Col>
-                    </Row>
-                    <Col md={4}>
+                        <Col m={4}>
+                        </Col> 
+                    <Col md={3}>
                         <div id="lista">
                             {this.state.listaAlimentos.map((list, index) => 
                                 <Card key={index}>
-                                    <Card.Header>
-                                        {list.nome}
-                                    </Card.Header>
-                                    <Card.Body>
-                                        {list.caloria}
-                                    </Card.Body>
-                                    <Card.Footer>
-                                        <Button onClick={() => this.excluirAlimento(index)}>
-                                            Excluir
-                                        </Button>
-                                    </Card.Footer>
+                                    <ListGroup horizontal variant="flush">
+                                        <ListGroup.Item>
+                                            {list.nome}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            {list.caloria}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <button className="Excluir" onClick={() => this.excluirAlimento(index)}>
+                                                Excluir
+                                            </button>
+                                        </ListGroup.Item>
+                                    </ListGroup>
                                 </Card>
                             )}
                         </div>
                     </Col>
+                    <Col m={1}>
+                        </Col> 
+                    </Row>
                 </Col>
             </div>
         )
