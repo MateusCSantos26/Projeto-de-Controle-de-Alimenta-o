@@ -34,10 +34,11 @@ function App() {
         <Route path="/info">
           <Info />
         </Route>
-      </Switch>
-      <Route path="/">
+        <Route path="/">
           <Sobre />
       </Route>
+      </Switch>
+      
     </Router>  
   );
 }

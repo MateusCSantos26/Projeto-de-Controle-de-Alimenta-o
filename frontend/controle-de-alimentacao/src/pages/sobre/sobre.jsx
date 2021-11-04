@@ -97,7 +97,7 @@ class Sobre extends Component {
                                 <Form.Control id="caloria" type="text" placeholder="Calorias" value={this.state.caloria} onChange={this.novaCaloria}/>
                             </Col>
                             <Col md={2}>
-                                <Button variant="secondary" style={{marginRight: '5px'}} onClick={this.adicionar}>Adicionar</Button>
+                                <Button className="Adicionar" variant="secondary" style={{marginRight: '5px'}} onClick={this.adicionar}>Adicionar</Button>
                             </Col>
                         </Col>
                     </Row>
